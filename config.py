@@ -6,6 +6,7 @@ class Config:
     '''
     
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
     SECRET_KEY='123'
 
 
