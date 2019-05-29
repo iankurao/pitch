@@ -1,0 +1,21 @@
+{%extends "bootstrap/base.html"%}
+
+{%block navbar%}
+  {%include 'navbar.html'%}
+{%endblock%}
+
+{%block content%}
+{%block styles%}
+
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/mdb.css')}}">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
+ <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+ <script src="{{ url_for('static', filename='js/popper.min.js')}}"></script>
+ <script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+ <script src="{{ url_for('static', filename='js/mdb.js')}}"></script>
+ <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+{%endblock%} 
+{%endblock%}
