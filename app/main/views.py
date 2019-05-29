@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
-from ..models import User,Pitches
-from flask_login import login_required
+from ..models import User,Pitches,Comments
+from flask_login import login_required,current_user
 from .forms import UpdateProfile,ReviewForm,WritePitch
 from .. import db
 
@@ -12,13 +12,9 @@ def index():
     title="Pitch"
     message="Home of ideas, Where ideas are born"
     top=Pitches.query.all();
-    pitch=Pitches.query.filter_by(categ="AI").all()
-    pitch1=Pitches.query.filter_by(categ="R").all()
-    pitch2=Pitches.query.filter_by(categ="D").all()
-    pitch3=Pitches.query.filter_by(categ="IOT").all()
     top.reverse()
     top_pitch=top[0:4]
-    return render_template("index.html",title=title,message=message,pitch=pitch,top_pitch=top_pitch,pitch1=pitch1,pitch2=pitch2,pitch3=pitch3)
+    return render_template("index.html",title=title,message=message,top_pitch=top_pitch)
 
 
 
@@ -39,6 +35,8 @@ def profile(uname):
 '''
 new Pitch idea
 '''
+
+
 
 @main.route("/<uname>",methods=["GET","POST"])
 @login_required
@@ -88,3 +86,30 @@ def review(id):
 
     return render_template("new_review.html",pitch=pitch,id=pitch_id,title=title,comment_form=form,all=all_comments)
 
+@main.route("/user/<uname>/update",methods=["GET","POST"])
+@login_required
+def update_profile(uname):
+    user=User.query.filter_by(username=uname).first()
+    if user is None:
+        abort(404)
+    form =UpdateProfile()
+    if form.validate_on_submit():
+        user.about=form.about.data
+        db.session.add(user)
+        db.session.commit()
+
+        return redirect(url_for(".profile",uname=user.username))
+
+    return render_template("profile/update.html",form=form)
+
+
+'''
+up down vote
+'''
+
+def upVote():
+    vote=0;
+
+
+def downVote():
+    pass
