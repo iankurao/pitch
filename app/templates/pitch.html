@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf %}
+{%block content%}
+<div id="pitch" class="jumbotron pitch">
+  <h1>Pitch an Amazing Idea</h1>
+  <div id="spinner" class="spinner-grow" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+
+        {{wtf.quick_form(new_review)}}
+    </div>
+    <div class="col-md-3"></div>
+
+  </div>
+
+</div>
+{%endblock%}
