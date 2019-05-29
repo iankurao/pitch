@@ -1,0 +1,51 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+<div class=" main jumbotron">
+  <h1>Pitch Perfectly</h1>
+  <h4>{{message}}</h4>
+  {%if current_user.is_authenticated%}
+  <p>Get started pitch your own Idea </p><a href="{{url_for('main.new_pitch',uname=current_user.username)}}"><button class="btn default-color" type="button" name="button">Here</button></a>
+  {%else%}
+  <p>Pitch your own Idea </p><a><button class="btn default-color" id="login" type="button" title="Login Required To post your Idea" name="button">Here</button></a>
+  {%endif%}
+</div>
+<div class="container-fluid">
+  <div class="row">
+    {%for all in top_pitch%}
+    <div class="col-md-3">
+      <div class="one">
+        <div class="on">
+          <div  class="jumbotron title">
+            <h5>{{all.title}}</h5> <span class="animated fadeIn " aria-hidden="true">New</span>
+          </div>
+          {{all.pitch}}
+          <br>
+          <i class="vom">Category {{all.categ}}</i>
+          <br>
+          <hr class="default-color">
+          <a class="btn default-color" href="/pitch/new/review/{{all.id}}">comment</a>
+        </div>
+
+      </div>
+    </div>
+    {%endfor%}
+
+  </div>
+  <br>
+  
+</div>
+<footer class="page-footer font-small bg-default pt-4">
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <a href="https://github.com/iankurao"> Ian Kurao</a>
+      </div>
+      <!-- Copyright -->
+
+    </footer>
+
+
+
+{%endblock%}

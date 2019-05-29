@@ -6,11 +6,11 @@ class Config:
     '''
     
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
+    SECRET_KEY='123'
 
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://collo:collins@localhost/pitch_test'
+    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://ian:vionashina@localhost/pitch_test'
 
 
 class ProdConfig(Config):

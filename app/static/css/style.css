@@ -1,0 +1,62 @@
+  .container-fluid{
+    margin: 3px;
+  }
+  .title{
+    background-color: #727C82  !important;
+    color: white;
+  }
+  .title:hover{
+    background-color: #305872 !important;
+    transition: 300ms;
+  }
+  span{
+    display: none;
+    color: white;
+  }
+  .vom{
+  
+    color: #846;
+  }
+  .main{
+    background-image: url(../img/idea1.jpg);
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+    height: 53vh;
+    text-align: center;
+    text-transform: capitalize;
+    color: white;
+    font-weight: 400;
+    background-color: rgba(0,0,0,0.3) !important;
+  }
+  h1{
+    text-align: center;
+  }
+ 
+
+  img{
+  
+    max-width: 100%;
+    display:block;
+    height: 400px;
+  }
+  
+  #bg{
+    background-image: url(../img/idea1.jpg);
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    color: white;
+  }
+  
+  .body{
+    background-color: #1F3849;
+  }
+  .pitch{
+    text-align:center;
+    text-transform: capitalize;
+  }
+  
