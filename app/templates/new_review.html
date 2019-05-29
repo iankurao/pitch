@@ -1,0 +1,80 @@
+{%extends 'base.html'%}
+{%import "bootstrap/wtf.html" as wtf%}
+{%block content%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body class="body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="">
+            <div class="card">
+              <h5>This Project was Pitched  by {{pitch[id-1].author}}</h5>
+                <h3 class="gnome">Title {{pitch[id-1].title}}</h3>
+              <div class="card-body">
+                {{pitch[id-1].pitch}}
+                <br>
+                <hr class="default-color">
+
+                <i>by {{pitch[id-1].author}}</i>
+                <button id="like" class="btn btn-success" type="button" name="button"><i class="fas fa-thumbs-up"></i> <p id="p">50</p></button>
+                <button id="dislike" class="btn btn-danger" type="button" name="button"><i class="fas fa-thumbs-down"></i><p id="p1">0</p> </button>
+              </div>
+
+
+            </div>
+            {%if all%}
+            <div class="card">
+              <div class="card-body">
+                  <h2>Comments.....</h2>
+              </div>
+
+            </div>
+
+            {%for hope in all%}
+            <div class="card">
+              <h5>{{hope.pitch_title}}</h5>
+              <div class="card-body">
+               <i class="fas fa-quote-left"> {{hope.comments}}</i>
+              </div>
+              <p>Posted on {{hope.posted}}</p>
+              <p>posted by {{pitch[id-1].author}}</p>
+
+            </div>
+
+            {%endfor%}
+            {%else%}
+            <h1 class="animated fadeIn"></h1>
+            <div class="card">
+              <div class="card-body">
+                <h2>No comments yet for this Pitch</h2>
+              </div>
+
+            </div>
+
+            {%endif%}
+
+
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <div class="jumbotron">
+            <h1>Leave a comment</h1>
+            {{wtf.quick_form(comment_form)}}
+            
+          </div>
+
+
+        </div>
+       
+      </div>
+
+    </div>
+    {%endblock%}
+  </body>
+</html>
