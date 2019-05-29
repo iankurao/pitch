@@ -17,7 +17,7 @@ class User(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(255),index = True)
     email = db.Column(db.String(255),unique = True,index = True)
-    role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
+    # role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     about=db.Column(db.String(500))
     profile=db.Column(db.String(250))
     comments=db.relationship('Comments',backref='user',lazy="dynamic")
@@ -82,10 +82,9 @@ class Comments(db.Model):
 
 class Role(db.Model):
     __tablename__ = 'roles'
-
     id = db.Column(db.Integer,primary_key = True)
     name = db.Column(db.String(255))
-    users = db.relationship('User',backref = 'role',lazy="dynamic")
+    pitches = db.relationship('Pitches',backref = 'role',lazy="dynamic")
     def __repr__(self):
         return f'User {self.name}'
 
